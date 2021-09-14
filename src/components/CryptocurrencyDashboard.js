@@ -1,6 +1,7 @@
 import React from 'react';
 import CryptocurrencyDashboardCoinTile from './CryptocurrencyDashboardCoinTile';
 import CryptocurrencyDashboardMarketTrendTile from './CryptocurrencyDashboardMarketTrendTile';
+import CryptocurrencyDashboardMarketOverivewTile from './CryptocurrencyDashboardMarketOverivewTile';
 
 const CryptocurrencyDashboard = ({ cryptocurrencies }) => {
 
@@ -44,7 +45,11 @@ const CryptocurrencyDashboard = ({ cryptocurrencies }) => {
 				<div className={'cryptocurrency-dashboard-main-coin-tiles-box'}>
 					{renderCoinTiles()}
 				</div>
-				<CryptocurrencyDashboardMarketTrendTile cryptocurrencies={cryptocurrencies}/>
+				<div className={'cryptocurrency-dashboard-main-bottom'}>
+					<CryptocurrencyDashboardMarketOverivewTile/>
+					<CryptocurrencyDashboardMarketTrendTile cryptocurrencies={cryptocurrencies}/>
+				</div>
+
 			</div>
 		</div>
 	);

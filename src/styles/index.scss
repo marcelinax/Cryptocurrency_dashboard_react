@@ -7,6 +7,13 @@
   font-family: 'Inter', sans-serif;
 }
 
+h4 {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFFFFF;
+}
+
 .App {
   display: flex;
   width: calc(100vw - 101px);
@@ -126,8 +133,14 @@
     &-coin-tiles-box {
       width: 100%;
       display: flex;
-      overflow-x: auto;
+      overflow-x: hidden;
       padding-top: 25px;
+    }
+
+    &-bottom {
+      width: 100%;
+      display: flex;
+      margin-top: 20px;
     }
   }
 
@@ -252,12 +265,6 @@
   flex-direction: column;
   border: none;
 
-  h4 {
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 22px;
-    color: #FFFFFF;
-  }
 
   &-currencies-info {
     width: 100%;
@@ -331,6 +338,33 @@
       p {
         color: #FFFFFF;
       }
+    }
+  }
+}
+
+.cryptocurrency-dashboard-market-overview-tile {
+  width: 629px;
+  height: 267px;
+  margin-right: 20px;
+
+  &-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    select {
+
+      background: rgba(26, 17, 29, 0.7);
+      border-radius: 10px;
+      color: #E2D8FD;
+      padding: 10px;
+      width: 105px;
+      display: flex;
+      height: 37px;
+      outline: none;
+      border: none;
+
+
     }
   }
 }

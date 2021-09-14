@@ -1,6 +1,7 @@
 import React from 'react';
 
 const CryptocurrencyDashboardMenu = () => {
+
 	return (
 		<div className={'cryptocurrency-dashboard-menu'}>
 			<img src={'/media/logo.svg'}/>

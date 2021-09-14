@@ -11,6 +11,7 @@ const CryptocurrencyDashboardMarketTrendTile = ({ cryptocurrencies }) => {
 		));
 	};
 
+
 	const renderCurrencies24Change = () => {
 		return cryptocurrencies.map(cryptocurrency => (
 			<div className={'cryptocurrency-24change'}>
