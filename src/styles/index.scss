@@ -258,8 +258,8 @@ h4 {
 }
 
 .cryptocurrency-dashboard-market-trend-tile {
-  width: 370px;
-  height: 265px;
+  width: calc(370px - 32px);
+  height: calc(265px - 30px);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -343,8 +343,8 @@ h4 {
 }
 
 .cryptocurrency-dashboard-market-overview-tile {
-  width: 629px;
-  height: 267px;
+  width: calc(629px - 32px);
+  height: calc(267px - 30px);
   margin-right: 20px;
 
   &-top {
@@ -365,6 +365,97 @@ h4 {
       border: none;
 
 
+    }
+  }
+}
+
+.cryptocurrency-dashboard-quick-transfer-tile {
+  width: calc(240px - 32px);
+  height: calc(267px - 30px);
+  margin-right: 20px;
+  border: none;
+
+  &-avatars {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-top: 20px;
+
+    img {
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &-input {
+    display: flex;
+    width: 100%;
+    margin-top: 26px;
+
+
+    p {
+
+      &:first-of-type {
+        font-weight: 500;
+        font-size: 15px;
+        color: #9080BA;
+        margin-right: 5px;
+        line-height: 38px;
+        text-align: center !important;
+      }
+
+      &:last-of-type {
+        font-size: 13.75px;
+        line-height: 30px;
+        color: #7452CD;
+        margin-right: 3px;
+      }
+
+
+    }
+
+    input {
+      width: 100%;
+      font-weight: 600;
+      font-size: 24.75px;
+      line-height: 30px;
+      color: #FFFFFF;
+      outline: none;
+      border: none;
+      background-color: transparent;
+
+      &::placeholder {
+        font-weight: 600;
+        font-size: 24.75px;
+        line-height: 30px;
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 40px;
+    background: linear-gradient(90deg, #AC6AEC 0%, #BB7FF5 100%);
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    margin-top: 25px;
+    cursor: pointer;
+
+    img {
+      margin-right: 8px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #FFFFFF;
+      font-weight: 600;
     }
   }
 }

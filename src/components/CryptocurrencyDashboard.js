@@ -2,6 +2,7 @@ import React from 'react';
 import CryptocurrencyDashboardCoinTile from './CryptocurrencyDashboardCoinTile';
 import CryptocurrencyDashboardMarketTrendTile from './CryptocurrencyDashboardMarketTrendTile';
 import CryptocurrencyDashboardMarketOverivewTile from './CryptocurrencyDashboardMarketOverivewTile';
+import CryptocurrencyDashboardQuickTransferTile from './CryptocurrencyDashboardQuickTransferTile';
 
 const CryptocurrencyDashboard = ({ cryptocurrencies }) => {
 
@@ -47,6 +48,7 @@ const CryptocurrencyDashboard = ({ cryptocurrencies }) => {
 				</div>
 				<div className={'cryptocurrency-dashboard-main-bottom'}>
 					<CryptocurrencyDashboardMarketOverivewTile/>
+					<CryptocurrencyDashboardQuickTransferTile/>
 					<CryptocurrencyDashboardMarketTrendTile cryptocurrencies={cryptocurrencies}/>
 				</div>
 
