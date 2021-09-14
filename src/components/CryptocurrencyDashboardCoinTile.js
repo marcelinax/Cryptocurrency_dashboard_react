@@ -5,17 +5,17 @@ import { Line } from 'react-chartjs-2';
 const CryptocurrencyDashboardCoinTile = ({ id, currency, price, percentages, rank }) => {
 
 	const [chartData, setChartData] = useState([]);
-	const [currentPrice, setCurrentPrice] = useState([]);
+
 
 	const getHistoryData = async () => {
-		const res = await axios.get(`https://api.coincap.io/v2/assets/${id}/history?interval=d1`);
+		const res = await axios.get(`https://api.coincap.io/v2/assets/${id}/history?interval=m1&start=${Date.now() - (5 * 60 * 1000)}&end=${Date.now()}`);
 		setChartData(res.data.data);
+		setTimeout(() => {
+			setChartData(res.data.data);
+		}, 60000);
+
 	};
 
-	const getCurrentPrice = async () => {
-		const res = await axios.get(`https://api.coincap.io/v2/assets/${id}/history?interval=m1`);
-		setCurrentPrice(res.data.data.priceUsd);
-	};
 
 	const getCoinIcon = () => {
 		if (rank % 2 === 0) return '/media/Coin2.svg';
@@ -25,7 +25,6 @@ const CryptocurrencyDashboardCoinTile = ({ id, currency, price, percentages, ran
 
 	useEffect(() => {
 			getHistoryData();
-			getCurrentPrice();
 		}, []
 	);
 
@@ -34,15 +33,26 @@ const CryptocurrencyDashboardCoinTile = ({ id, currency, price, percentages, ran
 			labels: chartData.map((_, index) => index),
 			datasets: [
 				{
-					label: '#',
+					label: null,
 					data: chartData.map(i => i.priceUsd),
 					fill: false,
-					backgroundColor: '#D53AFB',
-					borderColor: '#D53AFB',
+					backgroundColor: 'transparent',
+					pointBorderWidth: 0,
+					borderColor: rank % 2 == 0 ? '#D53AFB' : '#63EFE4',
 
 
 				},
 			],
+		};
+	};
+
+	const getChartOptions = () => {
+		return {
+			plugins: {
+				legend: {
+					display: false
+				}
+			}
 		};
 	};
 
@@ -51,8 +61,8 @@ const CryptocurrencyDashboardCoinTile = ({ id, currency, price, percentages, ran
 			<img src={getCoinIcon()} className={'cryptocurrency-dashboard-coin-tile-coin-icon'}/>
 			<div className={'cryptocurrency-dashboard-coin-tile-top'}>
 				<div className={'cryptocurrency-dashboard-coin-tile-top-currency'}>
-					{/*<p>{currency}</p>*/}
-					<p>{currentPrice}</p>
+					<p>{currency}</p>
+
 					<img src={'/media/Arrows.svg'}/>
 					<p>USD</p>
 				</div>
@@ -61,8 +71,10 @@ const CryptocurrencyDashboardCoinTile = ({ id, currency, price, percentages, ran
 					<p style={{ color: percentages > 0 ? '#00C287' : '#E72D04' }}>{(+percentages).toFixed(2).replace('-', '')}%</p>
 				</div>
 			</div>
-			<h5>{(+price).toFixed(2)}</h5>
-			<Line data={getChartData()}></Line>
+			{chartData.length > 0 ? <h5>{(+chartData[4].priceUsd).toFixed(2)}</h5> : null}
+
+
+			<Line data={getChartData()} options={getChartOptions()}></Line>
 		</div>
 	);
 };

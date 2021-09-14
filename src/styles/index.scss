@@ -160,6 +160,7 @@
     justify-content: space-between;
     align-items: center;
 
+
     &-currency {
       display: flex;
       align-items: center;
@@ -249,6 +250,7 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  border: none;
 
   h4 {
     font-weight: bold;

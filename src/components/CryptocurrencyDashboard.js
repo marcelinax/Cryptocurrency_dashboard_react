@@ -6,17 +6,14 @@ const CryptocurrencyDashboard = ({ cryptocurrencies }) => {
 
 
 	const renderCoinTiles = () => {
-		return cryptocurrencies.length > 0 ? cryptocurrencies.map((cryptocurrency, index) => (
-					index < 4 ?
-						<CryptocurrencyDashboardCoinTile
-							id={cryptocurrency.id}
-							currency={cryptocurrency.symbol}
-							percentages={cryptocurrency.changePercent24Hr}
-							price={cryptocurrency.priceUsd}
-							rank={cryptocurrency.rank}/> : null
-				)
-			) :
-			null;
+		return cryptocurrencies.length > 0 ? cryptocurrencies.map(cryptocurrency => (
+			<CryptocurrencyDashboardCoinTile
+				id={cryptocurrency.id}
+				currency={cryptocurrency.symbol}
+				percentages={cryptocurrency.changePercent24Hr}
+				// price={cryptocurrency.priceUsd}
+				rank={cryptocurrency.rank}/>)) : null;
+
 	};
 
 	return (
