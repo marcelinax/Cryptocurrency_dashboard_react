@@ -9,7 +9,7 @@
 
 .App {
   display: flex;
-
+  width: calc(100vw - 101px);
 }
 
 .cryptocurrency-dashboard {
@@ -117,7 +117,85 @@
     }
 
   }
+
+  &-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &-coin-tiles-box {
+      width: 100%;
+      display: flex;
+      overflow-x: auto;
+      padding-top: 25px;
+    }
+  }
+
+  &-tile {
+    background: #3C354A;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 16px 15px;
+    display: flex;
+    flex-direction: column;
+  }
 }
+
+.cryptocurrency-dashboard-coin-tile {
+  min-width: calc(240px - 30px);
+  min-height: calc(155px - 50px - 16px);
+  padding-top: 50px;
+  position: relative;
+  margin-right: 20px;
+
+  &-coin-icon {
+    left: 95px;
+    top: -25px;
+    position: absolute;
+  }
+
+  &-top {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    &-currency {
+      display: flex;
+      align-items: center;
+
+      p {
+        color: #868B93;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      img {
+        margin: 0 12px;
+      }
+    }
+
+    &-difference-box {
+      display: flex;
+      align-items: center;
+
+      p {
+        font-size: 14px;
+        margin-left: 5px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  h5 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+    margin-top: 12px;
+  }
+}
+
 
 .cryptocurrency-dashboard-menu {
   background-color: #261E35;
@@ -162,5 +240,95 @@
   .bottom-btn {
     position: absolute;
     bottom: 12px;
+  }
+}
+
+.cryptocurrency-dashboard-market-trend-tile {
+  width: 370px;
+  height: 265px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  h4 {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+  }
+
+  &-currencies-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cryptocurrency-name-box, .cryptocurrency-price-box, .cryptocurrency-24change-box {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+
+
+    label {
+      font-size: 10px;
+      line-height: 12px;
+      color: #BFB7B7;
+      margin: 12px 0;
+    }
+
+    p {
+      font-size: 11.725px;
+      line-height: 17px;
+    }
+  }
+
+  .cryptocurrency-name-box {
+    .cryptocurrency-name {
+      display: flex;
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      p {
+        &:first-of-type {
+          color: #FFFFFF;
+          margin-right: 5.025px;
+        }
+
+        &:last-of-type {
+          color: #9A9A9A;
+        }
+      }
+    }
+  }
+
+  .cryptocurrency-price-box {
+    p {
+      color: #9292C1;
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+    }
+  }
+
+  .cryptocurrency-24change-box {
+    .cryptocurrency-24change {
+      display: flex;
+      margin-bottom: 12px;
+      justify-content: space-between;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      p {
+        color: #FFFFFF;
+      }
+    }
   }
 }

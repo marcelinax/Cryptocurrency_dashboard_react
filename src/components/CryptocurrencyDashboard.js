@@ -1,6 +1,24 @@
 import React from 'react';
+import CryptocurrencyDashboardCoinTile from './CryptocurrencyDashboardCoinTile';
+import CryptocurrencyDashboardMarketTrendTile from './CryptocurrencyDashboardMarketTrendTile';
 
-const CryptocurrencyDashboard = () => {
+const CryptocurrencyDashboard = ({ cryptocurrencies }) => {
+
+
+	const renderCoinTiles = () => {
+		return cryptocurrencies.length > 0 ? cryptocurrencies.map((cryptocurrency, index) => (
+					index < 4 ?
+						<CryptocurrencyDashboardCoinTile
+							id={cryptocurrency.id}
+							currency={cryptocurrency.symbol}
+							percentages={cryptocurrency.changePercent24Hr}
+							price={cryptocurrency.priceUsd}
+							rank={cryptocurrency.rank}/> : null
+				)
+			) :
+			null;
+	};
+
 	return (
 		<div className={'cryptocurrency-dashboard'}>
 			<div className={'cryptocurrency-dashboard-top'}>
@@ -24,6 +42,12 @@ const CryptocurrencyDashboard = () => {
 						</div>
 					</div>
 				</div>
+			</div>
+			<div className={'cryptocurrency-dashboard-main'}>
+				<div className={'cryptocurrency-dashboard-main-coin-tiles-box'}>
+					{renderCoinTiles()}
+				</div>
+				<CryptocurrencyDashboardMarketTrendTile cryptocurrencies={cryptocurrencies}/>
 			</div>
 		</div>
 	);
