@@ -1,12 +1,122 @@
 @import '~boxicons';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&display=swap');
 
 * {
   padding: 0;
   margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.App {
+  display: flex;
+
 }
 
 .cryptocurrency-dashboard {
+  background-color: #261E35;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px);
+  width: calc(100% - 60px);
 
+  &-top {
+    width: 100%;
+    display: flex;
+
+    &-left, &-right {
+      display: flex;
+
+      align-items: center;
+
+      button {
+        background: #2F293E;
+        border-radius: 50%;
+        outline: none;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    &-left {
+      justify-content: space-between;
+      width: 492px;
+
+      button {
+        width: 40px;
+        height: 40px;
+        border: none;
+      }
+
+      p {
+        color: #FFFFFF;
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: bold;
+      }
+
+    }
+
+    &-right {
+      justify-content: flex-end;
+      width: calc(100% - 492px);
+
+      &-filter-box {
+        width: calc(220px - 40px);
+        padding: 15px 20px;
+        height: calc(47px - 30px);
+        position: relative;
+        display: flex;
+        border-radius: 15px;
+        background: #2F293E;
+
+        input {
+          width: 100%;
+          height: 100%;
+          outline: none;
+          border: none;
+          background-color: transparent;
+          color: #E2D8FD;
+
+          &::placeholder {
+            color: #E2D8FD;
+          }
+        }
+
+        img {
+          position: absolute;
+          top: 15px;
+          right: 20px;
+        }
+      }
+
+      &-buttons {
+        display: flex;
+        margin-left: 50px;
+
+        button {
+          width: 47px;
+          height: 47px;
+          border: 1px solid rgba(217, 203, 255, 0.4);
+          background: #2B2638;
+          margin-right: 12px;
+          position: relative;
+
+          &:before {
+            content: '';
+            position: absolute;
+            background: #E9001C;
+            border-radius: 50%;
+            width: 6px;
+            height: 6px;
+            left: 35px;
+            top: 2px;
+          }
+        }
+      }
+    }
+
+  }
 }
 
 .cryptocurrency-dashboard-menu {
@@ -19,6 +129,7 @@
   align-items: center;
   box-shadow: inset -1.5px 0px 0px rgba(255, 255, 255, 0.15);
   border-right: 1px solid #474053;
+  position: relative;
 
   &-buttons {
     margin-top: 77px;

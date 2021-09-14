@@ -5,10 +5,11 @@ import React from 'react';
 
 function App() {
 	return (
-		<>
-			<CryptocurrencyDashboard/>
+		<div className={'App'}>
 			<CryptocurrencyDashboardMenu/>
-		</>
+			<CryptocurrencyDashboard/>
+
+		</div>
 	);
 }
 
