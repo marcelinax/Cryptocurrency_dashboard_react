@@ -16,7 +16,9 @@ h4 {
 
 .App {
   display: flex;
-  width: calc(100vw - 101px);
+  width: 100vw;
+
+
 }
 
 .cryptocurrency-dashboard {
@@ -25,7 +27,7 @@ h4 {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 60px);
-  width: calc(100% - 60px);
+  width: calc(100% - 100px - 61px);
 
   &-top {
     width: 100%;
@@ -142,6 +144,23 @@ h4 {
       display: flex;
       margin-top: 20px;
     }
+
+    &-top {
+      width: 100%;
+      display: flex;
+      margin-top: 30px;
+      margin-bottom: 20px;
+
+      &-bilboard-tile {
+        width: 630px;
+        height: 289px;
+        border: 1px solid #000000;
+        border-radius: 20px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
   }
 
   &-tile {
@@ -156,8 +175,10 @@ h4 {
 
 .cryptocurrency-dashboard-coin-tile {
   min-width: calc(240px - 30px);
-  min-height: calc(155px - 50px - 16px);
-  padding-top: 50px;
+  min-height: calc(155px - 40px - 16px);
+  max-width: calc(240px - 30px);
+  max-height: calc(155px - 40px - 16px);
+  padding-top: 40px;
   position: relative;
   margin-right: 20px;
 
@@ -206,7 +227,7 @@ h4 {
     font-size: 20px;
     line-height: 24px;
     color: #FFFFFF;
-    margin-top: 12px;
+    margin-top: 8px;
   }
 }
 
@@ -260,7 +281,7 @@ h4 {
 .cryptocurrency-dashboard-market-trend-tile {
   width: calc(370px - 32px);
   height: calc(265px - 30px);
-  overflow-y: auto;
+
   display: flex;
   flex-direction: column;
   border: none;
@@ -270,6 +291,29 @@ h4 {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 7px;
+
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #261E35;
+      border-radius: 20px;
+
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #3C354A;
+      border-radius: 20px;
+
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #261E35;
+    }
+
   }
 
   .cryptocurrency-name-box, .cryptocurrency-price-box, .cryptocurrency-24change-box {
@@ -457,5 +501,95 @@ h4 {
       color: #FFFFFF;
       font-weight: 600;
     }
+  }
+}
+
+.cryptocurrency-dashboard-profit-tile {
+  width: calc(240px - 32px);
+  height: calc(267px - 30px);
+  border: none;
+  margin-right: 20px;
+
+  &-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 7px;
+
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #261E35;
+      border-radius: 20px;
+
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #3C354A;
+      border-radius: 20px;
+
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #261E35;
+    }
+
+    .profit-box {
+      width: 100%;
+      display: flex;
+      margin-bottom: 12px;
+      padding: 15px 0;
+      border-bottom: 1px solid #4C455C;
+
+      .arrow-box {
+        padding: 13px;
+        height: calc(41px - 26px);
+        width: calc(41px - 26px);
+        display: flex;
+        background-color: #2D2842;
+        margin-right: 15px;
+        border-radius: 10px;
+
+      }
+
+      .profit-info-box {
+        display: flex;
+        flex-direction: column;
+
+        &-row {
+          display: flex;
+
+          .cryptocurrency {
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 27px;
+            color: #FFFFFF;
+          }
+
+          p {
+            &:first-of-type {
+              font-size: 13.75px;
+              line-height: 23px;
+              color: #00C287;
+            }
+
+          }
+        }
+
+        .cryptocurrency-symbol {
+
+          font-weight: 500;
+          font-size: 10px;
+          line-height: 12px;
+
+          color: #9A9A9A;
+
+        }
+      }
+    }
+
   }
 }

@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CryptocurrencyDashboardCoinTile from './CryptocurrencyDashboardCoinTile';
 import CryptocurrencyDashboardMarketTrendTile from './CryptocurrencyDashboardMarketTrendTile';
 import CryptocurrencyDashboardMarketOverivewTile from './CryptocurrencyDashboardMarketOverivewTile';
 import CryptocurrencyDashboardQuickTransferTile from './CryptocurrencyDashboardQuickTransferTile';
+import CryptocurrencyDashboardProfitTile from './CryptocurrencyDashboardProfitTile';
 
 const CryptocurrencyDashboard = ({ cryptocurrencies }) => {
 
+	const [isTransfered, setIsTransfered] = useState(false);
 
 	const renderCoinTiles = () => {
 		return cryptocurrencies.length > 0 ? cryptocurrencies.map(cryptocurrency => (
@@ -13,7 +15,6 @@ const CryptocurrencyDashboard = ({ cryptocurrencies }) => {
 				id={cryptocurrency.id}
 				currency={cryptocurrency.symbol}
 				percentages={cryptocurrency.changePercent24Hr}
-				// price={cryptocurrency.priceUsd}
 				rank={cryptocurrency.rank}/>)) : null;
 
 	};
@@ -43,12 +44,16 @@ const CryptocurrencyDashboard = ({ cryptocurrencies }) => {
 				</div>
 			</div>
 			<div className={'cryptocurrency-dashboard-main'}>
+				<div className={'cryptocurrency-dashboard-main-top'}>
+					<div className={'cryptocurrency-dashboard-main-top-bilboard-tile'} style={{ backgroundImage: `url("/media/main.png")` }}/>
+				</div>
 				<div className={'cryptocurrency-dashboard-main-coin-tiles-box'}>
 					{renderCoinTiles()}
 				</div>
 				<div className={'cryptocurrency-dashboard-main-bottom'}>
 					<CryptocurrencyDashboardMarketOverivewTile/>
-					<CryptocurrencyDashboardQuickTransferTile/>
+					<CryptocurrencyDashboardQuickTransferTile setIsTransfered={setIsTransfered}/>
+					{isTransfered ? <CryptocurrencyDashboardProfitTile cryptocurrencies={cryptocurrencies}/> : null}
 					<CryptocurrencyDashboardMarketTrendTile cryptocurrencies={cryptocurrencies}/>
 				</div>
 

@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const CryptocurrencyDashboardQuickTransferTile = () => {
+const CryptocurrencyDashboardQuickTransferTile = ({ setIsTransfered }) => {
+
+	const [amount, setAmount] = useState('');
+
+	const handleAmountInput = (e) => {
+		setAmount(e.target.value);
+	};
+
+
 	return (
 		<div className={'cryptocurrency-dashboard-quick-transfer-tile cryptocurrency-dashboard-tile'}>
 			<h4>Quick Transfer</h4>
@@ -12,9 +20,11 @@ const CryptocurrencyDashboardQuickTransferTile = () => {
 			<div className={'cryptocurrency-dashboard-quick-transfer-tile-input'}>
 				<p>Amount:</p>
 				<p>$</p>
-				<input placeholder={'0.00'}/>
+				<input placeholder={'0.00'} onChange={handleAmountInput} value={amount}/>
 			</div>
-			<button>
+			<button onClick={() => {
+				setIsTransfered(true);
+			}}>
 				<img src={'/media/Send.svg'}/>
 				<p>Transfer Now</p>
 			</button>

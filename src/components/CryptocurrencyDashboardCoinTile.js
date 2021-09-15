@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';
 
-const CryptocurrencyDashboardCoinTile = ({ id, currency, price, percentages, rank }) => {
+const CryptocurrencyDashboardCoinTile = ({ id, currency, percentages, rank }) => {
 
 	const [chartData, setChartData] = useState([]);
 
@@ -74,7 +74,7 @@ const CryptocurrencyDashboardCoinTile = ({ id, currency, price, percentages, ran
 			{chartData.length > 0 ? <h5>{(+chartData[4].priceUsd).toFixed(2)}</h5> : null}
 
 
-			<Line data={getChartData()} options={getChartOptions()}></Line>
+			<Line data={getChartData()} options={getChartOptions()} height={'80px'}/>
 		</div>
 	);
 };
