@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setTransferedAmount } from '../state/transferedAmountSlice';
 
 const CryptocurrencyDashboardQuickTransferTile = ({ setIsTransfered }) => {
 
 	const [amount, setAmount] = useState('');
+
+	const dispatch = useDispatch();
 
 	const handleAmountInput = (e) => {
 		setAmount(e.target.value);
@@ -24,6 +28,7 @@ const CryptocurrencyDashboardQuickTransferTile = ({ setIsTransfered }) => {
 			</div>
 			<button onClick={() => {
 				setIsTransfered(true);
+				dispatch(setTransferedAmount({ amount }));
 			}}>
 				<img src={'/media/Send.svg'}/>
 				<p>Transfer Now</p>
