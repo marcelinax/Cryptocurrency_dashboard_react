@@ -8,11 +8,10 @@ const CryptocurrencyDashboardCoinTile = ({ id, currency, percentages, rank }) =>
 
 
 	const getHistoryData = async () => {
-		const res = await axios.get(`https://api.coincap.io/v2/assets/${id}/history?interval=m1&start=${Date.now() - (5 * 60 * 1000)}&end=${Date.now()}`);
-		setChartData(res.data.data);
-		setTimeout(() => {
+		setTimeout(async () => {
+			const res = await axios.get(`https://api.coincap.io/v2/assets/${id}/history?interval=m1&start=${Date.now() - (5 * 60 * 1000)}&end=${Date.now()}`);
 			setChartData(res.data.data);
-		}, 60000);
+		}, rank * 200);
 
 	};
 

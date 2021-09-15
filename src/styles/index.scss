@@ -135,14 +135,40 @@ h4 {
     &-coin-tiles-box {
       width: 100%;
       display: flex;
-      overflow-x: hidden;
+      overflow-x: auto;
       padding-top: 25px;
+
+      &::-webkit-scrollbar {
+        width: 7px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #261E35;
+        border-radius: 20px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #3C354A;
+        border-radius: 20px;
+      }
+
+
     }
 
     &-bottom {
       width: 100%;
       display: flex;
       margin-top: 20px;
+
+      &-bilboard-tile {
+        width: 629px;
+        height: 267px;
+        border-radius: 20px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-right: 20px;
+      }
     }
 
     &-top {
@@ -159,6 +185,10 @@ h4 {
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+
+        &:last-of-type {
+          margin-left: 20px;
+        }
       }
     }
   }
@@ -310,10 +340,7 @@ h4 {
 
     }
 
-    &::-webkit-scrollbar-thumb:hover {
-      background: #261E35;
-    }
-
+    
   }
 
   .cryptocurrency-name-box, .cryptocurrency-price-box, .cryptocurrency-24change-box {

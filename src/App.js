@@ -8,7 +8,7 @@ function App() {
 	const [cryptocurrencies, setCryptocurrencies] = useState([]);
 
 	const getCryptocurrencies = () => {
-		axios.get('https://api.coincap.io/v2/assets').then(res => setCryptocurrencies(res.data.data));
+		axios.get('https://api.coincap.io/v2/assets?limit=10').then(res => setCryptocurrencies(res.data.data));
 	};
 
 	useEffect(() => {
