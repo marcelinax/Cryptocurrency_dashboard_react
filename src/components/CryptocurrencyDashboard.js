@@ -4,6 +4,7 @@ import CryptocurrencyDashboardMarketTrendTile from './CryptocurrencyDashboardMar
 import CryptocurrencyDashboardMarketOverivewTile from './CryptocurrencyDashboardMarketOverivewTile';
 import CryptocurrencyDashboardQuickTransferTile from './CryptocurrencyDashboardQuickTransferTile';
 import CryptocurrencyDashboardProfitTile from './CryptocurrencyDashboardProfitTile';
+import CryptocurrencyDashboardCoinChartTile from './CryptocurrencyDashboardCoinChartTile';
 
 const CryptocurrencyDashboard = ({ cryptocurrencies }) => {
 
@@ -46,6 +47,7 @@ const CryptocurrencyDashboard = ({ cryptocurrencies }) => {
 			<div className={'cryptocurrency-dashboard-main'}>
 				<div className={'cryptocurrency-dashboard-main-top'}>
 					<div className={'cryptocurrency-dashboard-main-top-bilboard-tile'} style={{ backgroundImage: `url("/media/main.png")` }}/>
+					<CryptocurrencyDashboardCoinChartTile cryptocurrencies={cryptocurrencies}/>
 				</div>
 				<div className={'cryptocurrency-dashboard-main-coin-tiles-box'}>
 					{renderCoinTiles()}

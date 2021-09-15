@@ -593,3 +593,63 @@ h4 {
 
   }
 }
+
+.cryptocurrency-dashboard-coin-chart-tile {
+  width: calc(629px - 32px);
+  height: calc(289px - 30px);
+  margin-left: 20px;
+
+  &-top {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    select {
+      width: 141px;
+      height: 41px;
+      padding: 10px 13px;
+      background: rgba(26, 17, 29, 0.7);
+      border-radius: 10px;
+      color: #FFFFFF;
+      outline: none;
+      border: none;
+    }
+
+    &-buttons {
+      display: flex;
+
+      button {
+        margin-right: 10px;
+        background: rgba(26, 17, 29, 0.7);
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: #868B93;
+        padding: 10px;
+        transition: .5s all;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 17px;
+
+        &:hover {
+          background: rgba(26, 17, 29, 0.7);
+          color: #FFFFFF;
+        }
+
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+
+      .btn--active {
+        background: rgba(26, 17, 29, 0.7);
+        color: #FFFFFF;
+      }
+    }
+  }
+
+
+}
