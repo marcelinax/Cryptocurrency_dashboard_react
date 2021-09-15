@@ -1,6 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 const CryptocurrencyDashboardProfitTile = ({ cryptocurrencies }) => {
+
+	const transferedAmount = useSelector(state => state.transferedAmount.amount);
 
 	const renderProfits = () => {
 		return cryptocurrencies.map(cryptocurrency => (
@@ -10,8 +13,9 @@ const CryptocurrencyDashboardProfitTile = ({ cryptocurrencies }) => {
 				</div>
 				<div className={'profit-info-box'}>
 					<div className={'profit-info-box-row'}>
+						{console.log(transferedAmount)}
 						<p style={{ color: cryptocurrency.changePercent24Hr > 0 ? '#00C287' : '#E72D04' }}>$</p>
-						<p className={'cryptocurrency'}>12</p>
+						<p className={'cryptocurrency'}>{((+cryptocurrency.priceUsd * +transferedAmount).toFixed(2))}</p>
 					</div>
 					<p className={'cryptocurrency-symbol'}>{cryptocurrency.symbol}</p>
 				</div>
@@ -24,6 +28,7 @@ const CryptocurrencyDashboardProfitTile = ({ cryptocurrencies }) => {
 			<h4>Profit</h4>
 			<div className={'cryptocurrency-dashboard-profit-tile-info'}>
 				{renderProfits()}
+
 			</div>
 		</div>
 	);

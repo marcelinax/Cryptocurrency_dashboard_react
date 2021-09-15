@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const transferedAmountSlice = createSlice({
 	name: 'transferedAmount',
 	initialState: {
-		amount: 0
+		amount: '0'
 	},
 	reducers: {
 		setTransferedAmount: (state, action) => {
